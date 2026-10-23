@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2 SEATWORK 1</title>
+        <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/spongeboy-me-bob" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #dbe2ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main {
+            background-color: #fffdf5;
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Spongeboy Me Bob', sans-serif;
+            color: #7d81bd;
+            font-size: 2.2rem;
+            line-height: 1.1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            background-color: #fff9e6;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 16px;
+            font-family: 'Spongeboy Me Bob', sans-serif;
+            font-size: 1.3rem;
+            color: #7d81bd;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: #7d81bd;
+            opacity: 0.8;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            background-color: #a7aada;
+            border: none;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: 'Spongeboy Me Bob', sans-serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.2s ease; 
+            margin-top: 5px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #9296cb;
+        }
+
+        .result-card {
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .result-card.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text {
+            font-family: 'Spongeboy Me Bob', sans-serif;
+            color: #a3a8ce;
+            font-size: 0.75rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        #result {
+            font-family: 'Spongeboy Me Bob', sans-serif;
+            color: #7d81bd;
+            font-size: 1.15rem;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 15px 10px 10px 10px;
+            line-height: 1.3;
+        }
+
+    </style>
+</head>
+<body>
+<!-- in style part, the transition and transform codes were from Google.-->
+ 
+    <div class="container">
+        <div class="main">
+            <header>
+                <h1>Glee Club<br>Checker</h1>
+            </header>
+
+            <main>
+                <form onsubmit="return false;">
+                    <input type="text" id="first name" placeholder="First Name..">
+                    <input type="text" id="last name" placeholder="Last Name..">
+                    <input type="button" id="enter-btn" py-click="candidate_checker" value="ENTER">
+                </form>
+            </main>
+        </div>
+
+        <div class="card result-card" id="result-box">
+            <div class="text">
+                BUBBLE BUDDY<br>
+                1234 WASHTUB WY.<br>
+                SOAPY WATERS
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('enter-btn').addEventListener('click', function() {
+            const resultCard = document.getElementById('result-box');
+            resultCard.classList.add('show');
+        });
+    </script>
+    
+    <py-script src="main.py"></py-script>
+</body>
+</html>
